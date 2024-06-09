@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Redeem Coupon</title>
+</head>
+<body>
+    <h1>Redeem Your Coupon</h1>
+    <form method="post">
+        <label for="code">Coupon Code:</label>
+        <input type="text" id="code" name="code" required>
+        <button type="submit">Redeem</button>
+    </form>
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+</body>
+</html>
+
