@@ -28,7 +28,7 @@ def redeem_coupon():
         cursor.execute('SELECT * FROM coupons WHERE code = %s AND redeemed = FALSE', (code,))
         coupon = cursor.fetchone()
         if coupon:
-            cursor.execute('UPDATE coupons SET redeemed = TRUE WHERE code = %s', (code,))
+            
             conn.commit()
             conn.close()
             return render_template('redeem.html', message=f"Selamat Kamu Mendapatkan {coupon[2]} harap salin kode dibawah ini {coupon[3]}")
