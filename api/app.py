@@ -31,8 +31,7 @@ def redeem_coupon():
             cursor.execute('UPDATE coupons SET redeemed = TRUE WHERE code = %s', (code,))
             conn.commit()
             conn.close()
-            return render_template('redeem.html', message=f"Selamat Kamu Mendapatkan {coupon[2]}
-            {coupon[3]}")
+            return render_template('redeem.html', message=f"Selamat Kamu Mendapatkan {coupon[2]} {coupon[3]}")
         else:
             conn.close()
             return render_template('redeem.html', message="Kode Kupon Tidak Valid atau Sudah Diredeem")
