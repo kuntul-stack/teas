@@ -31,7 +31,7 @@ def redeem_coupon():
             
             conn.commit()
             conn.close()
-            return render_template('redeem.html', message=f"Selamat Kamu Mendapatkan {coupon[2]} harap salin kode dibawah ini {coupon[3]}")
+            return render_template('redeem.html', message=f"Selamat Kamu Mendapatkan {coupon[2]} harap salin kode ini {coupon[3]}")
         else:
             conn.close()
             return render_template('redeem.html', message="Kode Kupon Tidak Valid")
