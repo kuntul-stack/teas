@@ -19,7 +19,7 @@ def get_db_connection():
     )
     return conn
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route( methods=['GET', 'POST'])
 def redeem_coupon():
     if request.method == 'POST':
         code = request.form['code']
