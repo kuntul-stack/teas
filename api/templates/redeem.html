@@ -1,19 +1,48 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Redeem Coupon</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Putra Store</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Redeem Your Coupon</h1>
-    <form method="post">
-        <label for="code">Coupon Code:</label>
-        <input type="text" id="code" name="code" required>
-        <button type="submit">Redeem</button>
-    </form>
-    {% if message %}
-        <p>{{ message }}</p>
-    {% endif %}
+    <div class="container">
+        <header>
+            <img src="logo.png" alt="Putra Store Logo" class="logo">
+            <h1>Terimakasih Telah Berbelanja :)</h1>
+            <p>Tukarkan Kode Yang Kamu Temukan Di Label</p>
+        </header>
+        
+        <div class="redeem-section">
+            <h2>Masukan Kode</h2>
+            <form method="post">
+                <input type="text" id="code" name="code" placeholder="Masukan Kode" required>
+                <button type="submit">Redeem Now</button>
+            </form>
+            {% if message %}
+                <p>{{ message }}</p>
+            {% endif %}
+        </div>
+
+        <footer>
+            <div class="footer-section">
+                <div class="address">
+                    <h3>PUTRA STORE</h3>
+                    <p>Jl. Candi Sewu No.1, Ngestiharjo, Jawa Tengah, Indonesia, 55282</p>
+                </div>
+                <div class="payments">
+                    <h3>Pembayaran & Pengiriman</h3>
+                    <img src="payment-logos.png" alt="Payment Methods">
+                </div>
+                <div class="contact">
+                    <h3>Hubungi Kami</h3>
+                    <p>WhatsApp</p>
+                    <p>Email</p>
+                    <p>Customer Service</p>
+                </div>
+            </div>
+        </footer>
+    </div>
 </body>
 </html>
-
