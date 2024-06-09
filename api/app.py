@@ -34,7 +34,7 @@ def redeem_coupon():
             return render_template('redeem.html', message=f"Selamat Kamu Mendapatkan {coupon[2]} harap salin kode dibawah ini {coupon[3]}")
         else:
             conn.close()
-            return render_template('redeem.html', message="Kode Kupon Tidak Valid atau Sudah Diredeem")
+            return render_template('redeem.html', message="Kode Kupon Tidak Valid")
     return render_template('redeem.html')
 
 if __name__ == '__main__':
