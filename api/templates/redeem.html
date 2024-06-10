@@ -274,7 +274,7 @@
         }
 
         window.onload = function() {
-            var message = "{{ message|escapejs }}";
+            var message = {{ message|tojson }};
             if (message) {
                 showModal(message);
             }
@@ -306,8 +306,7 @@
             <div class="footer-section">
                 <div class="address">
                     <h3>PUTRA STORE</h3>
-                    <p>Jl. Gatot Subroto - Tlogotirto
-                        Jawa Tengah, Grobogan, Gabus, ID [58183]</p>
+                    <p>Jl. Gatot Subroto - Tlogotirto Jawa Tengah, Grobogan, Gabus, ID [58183]</p>
                 </div>
                 <div class="payments">
                     
