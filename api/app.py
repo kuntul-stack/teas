@@ -25,16 +25,26 @@ def redeem_coupon():
         code = request.form['code']
         conn = get_db_connection()
         cursor = conn.cursor()
-        cursor.execute('SELECT * FROM coupons WHERE code = %s AND redeemed = FALSE', (code,))
+        
+        # First, check if the coupon exists
+        cursor.execute('SELECT * FROM coupons WHERE code = %s', (code,))
         coupon = cursor.fetchone()
+        
         if coupon:
-            cursor.execute('UPDATE coupons SET redeemed = TRUE WHERE code = %s', (code,))
-            conn.commit()
-            conn.close()
-            return render_template('redeem.html', message=f"Selamat Kamu Mendapatkan {coupon[2]} harap salin kode ini {coupon[3]}")
+            # Check if the coupon has already been redeemed
+            if coupon[4]:  # Assuming 'redeemed' is the 5th column
+                conn.close()
+                return render_template('redeem.html', message="Kode kupon sudah di redeem")
+            else:
+                # Redeem the coupon
+                cursor.execute('UPDATE coupons SET redeemed = TRUE WHERE code = %s', (code,))
+                conn.commit()
+                conn.close()
+                return render_template('redeem.html', message=f"Selamat Kamu Mendapatkan {coupon[2]} harap salin kode ini {coupon[3]}")
         else:
             conn.close()
-            return render_template('redeem.html', message="Kode Kupon Tidak Valid")
+            return render_template('redeem.html', message="Kode kupon tidak valid")
+    
     return render_template('redeem.html')
 
 if __name__ == '__main__':
